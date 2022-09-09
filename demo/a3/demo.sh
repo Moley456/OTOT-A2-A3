@@ -17,18 +17,8 @@ echo $line
 echo "Create HPA"
 kubectl apply -f k8s/manifests/backend-hpa.yaml
 
-sleep 5
 echo $line
 echo "Check HPA is working"
-kubectl describe hpa
-
-echo $line
-echo "Stress test"
-./demo/a3/stressTest.sh
-
-sleep 10
-echo $line
-echo "Check that HPA scales"
 kubectl describe hpa
 
 echo $line
